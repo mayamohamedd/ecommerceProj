@@ -1,12 +1,12 @@
 "use client"
 import React from 'react'
-import  { useState } from 'react'
+
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
+
 import { useRouter } from 'next/navigation'
-import { getForgetPass, getVerifyCode } from '../actions/forgetPass.action'
+import {  getVerifyCode } from '../actions/forgetPass.action'
 
 export default function VerifyCode() {
   

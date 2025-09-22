@@ -2,7 +2,7 @@
 import { Products } from '@/app/types/product.model'
 import React, { use } from 'react'
 import ProductCard from './ProductCard'
-import { useWishList } from '@/app/context/WishListContext'
+
 
 
 export default function ProductsGridSystem({products} : {products : Products[]}) {

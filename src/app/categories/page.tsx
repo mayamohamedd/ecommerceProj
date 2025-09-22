@@ -3,7 +3,8 @@ import { getCategories } from '../actions/categories.action'
 import CategoryGridSystem from '@/components/category-comps/CategoryGridSystem';
 
 export default async function Categoriespage() {
-  const {data : categories} = await getCategories();
+  const result = await getCategories();
+  const categories = result?.data ||  []
   return (
     <>
     <CategoryGridSystem categories={categories} />

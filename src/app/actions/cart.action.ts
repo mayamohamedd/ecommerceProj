@@ -2,7 +2,7 @@
 
 import { getUserToken } from "@/lib/token.utils";
 import axios from "axios"
-import ProductDetails from "../products/[id]/page";
+
 
 
 

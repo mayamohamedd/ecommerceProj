@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useState } from 'react'
+import React from 'react'
 import {
   NavigationMenu,
   
@@ -15,7 +15,7 @@ import { signOut, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { Badge } from '../ui/badge';
 import { useCart } from '@/app/context/CartContext';
-import WishListTable from '../wishlist-comps/WishListTable';
+
 import { useWishList } from '@/app/context/WishListContext';
 
 export default function Navbar() {

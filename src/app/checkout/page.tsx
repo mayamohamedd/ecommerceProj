@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useCart } from '../context/CartContext'
 import { getCashPayment, getOnlinePayment } from '../actions/payment.action'
@@ -24,6 +23,11 @@ const {register , handleSubmit , formState: { errors , isSubmitting }} = useForm
     async function onSubmit(values :Inputs){
       if(paymentMethod =="cash"){
         try {
+          const shippingAddress={
+            details : values.details,
+            phone: values.phone,
+            city: values.city,
+          }
             const response = await getCashPayment(cartId as string , values)
             console.log(response , "payment response");
             if(response?.data?.status === "success"){

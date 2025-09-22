@@ -36,7 +36,7 @@ export default function ProductCard({product}:{product:Products}) {
     console.log(response , 'added to wishlist');
     toast.success(response?.message);
     setIsWishListed(true);
-   let data=  await getWishListDetails();
+    await getWishListDetails?.();
   }
   return (
     <div>
