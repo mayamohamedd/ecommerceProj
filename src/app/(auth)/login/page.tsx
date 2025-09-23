@@ -24,7 +24,8 @@ const {register , handleSubmit , formState: { errors }} = useForm<Inputs>();
     const response = await signIn('credentials' , {
       email: values.email,
       password: values.password,
-      redirect: false
+      redirect: true,
+      callbackUrl:"/"
     });
     console.log(response);
     if(response?.ok){
