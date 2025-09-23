@@ -18,9 +18,7 @@ export interface Subcategory {
   slug: string;
   category: string;
 }
-export interface Review{
 
-}
 
 export interface ProductDetails {
   _id: string;
@@ -38,7 +36,6 @@ export interface ProductDetails {
   brand: Brand;
   ratingsAverage: number;
   ratingsQuantity: number;
-  reviews: Review[];
   createdAt: string;
   updatedAt: string;
 }

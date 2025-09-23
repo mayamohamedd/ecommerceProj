@@ -6,8 +6,8 @@ import ProductsGridSystem from '@/components/products-comps/ProductsGridSystem';
 
 
 export default async function Productspage() {
-  const {data : products} = await getProducts();
-   
+  const result = await getProducts();
+   const products = result?.data || [];
   return (
     <div>
       <ProductsGridSystem products={products} />

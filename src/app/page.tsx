@@ -18,7 +18,8 @@ export default async function Home() {
 
   const response = await getCategories();
   const data = response?.data;
-  const { data : products} = await getProducts();
+  const productsResult = await getProducts();
+  const products = productsResult?.data || [];
   return (
     <>
     <MainSlider/>

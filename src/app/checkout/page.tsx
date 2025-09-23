@@ -21,17 +21,17 @@ interface Inputs{
 }
 const {register , handleSubmit , formState: { errors , isSubmitting }} = useForm<Inputs>();
     async function onSubmit(values :Inputs){
-      if(paymentMethod =="cash"){
-        try {
-          const shippingAddress={
+      const shippingAddress={
             details : values.details,
-            phone: values.phone,
+            phone:String (values.phone),
             city: values.city,
           }
-            const response = await getCashPayment(cartId as string , values)
+      if(paymentMethod =="cash"){
+        try {
+            const response = await getCashPayment(cartId as string , {shippingAddress})
             console.log(response , "payment response");
             if(response?.data?.status === "success"){
-                setCartDetails(null);
+                setCartDetails?.(null);
                 router.push("/");
             }
         } catch (error) {
@@ -40,10 +40,10 @@ const {register , handleSubmit , formState: { errors , isSubmitting }} = useForm
       }else if  (paymentMethod == "online"){
         //action call online payment
          try {
-            const response = await getOnlinePayment(cartId as string , values)
+            const response = await getOnlinePayment(cartId as string , {shippingAddress})
             console.log(response?.data , "pay online");
             if(response?.data?.status === "success"){
-                window.location.href = response.data.session.url
+                window.location.href = response.data.session.url;
             }
         } catch (error) {
             console.log(error , "payment error");

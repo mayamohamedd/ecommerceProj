@@ -1,4 +1,4 @@
-
+import { Dispatch, SetStateAction } from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 import {  getUserCart } from "../actions/cart.action";
 import { CartData } from "../types/cart.model";
@@ -6,14 +6,15 @@ import { CartData } from "../types/cart.model";
 interface CartContextType {
     cartDetails : CartData | null,
     getCartDetails?: () => Promise<void> ,
-    setCartDetails?: (cart : CartData | null) => void
+    setCartDetails: Dispatch<SetStateAction<CartData | null>>;
+    // setCartDetails?: (cart : CartData | null) => void
 }
 
 const CartContext = createContext<CartContextType> ( { cartDetails: null , getCartDetails:  async () => {} , setCartDetails: () => {} } );
 
 
 export default function CartContextProvider( { children }: { children: React.ReactNode } ) {
-    const [cartDetails, setCartDetails] = useState(null);
+    const [cartDetails, setCartDetails] = useState<CartData | null>(null);
     async function getCartDetails() {
      const response = await getUserCart();
      setCartDetails(response?.data);
