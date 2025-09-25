@@ -15,5 +15,5 @@ if(!token){
  
 
 export const config = {
-  matcher:["/products" , "/", "/categories" , "/brands", "/cart" , "wishlist" ],
+  matcher:["/products" , "/", "/categories" , "/brands", "/cart" , "/wishlist" ],
 }

@@ -3,7 +3,6 @@ import React from 'react'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -16,7 +15,7 @@ import { toast } from 'react-hot-toast/headless'
 import { addProductCart } from '@/app/actions/cart.action'
 import { useCart } from '@/app/context/CartContext'
 import { deleteProductWishList } from '@/app/actions/wishList.action'
-import { set } from 'react-hook-form'
+
 
 export default function WishListTable() {
  
@@ -43,7 +42,7 @@ export default function WishListTable() {
     </TableRow>
   </TableHeader>
   <TableBody>
-    {wishListDetails?.data.map((product) =>  <TableRow key={product._id}>
+    {wishListDetails?.data?.map((product) =>  <TableRow key={product._id}>
       <TableCell className="font-medium p-3">
         <div className="flex gap-4 ">
             <div className="relative">
